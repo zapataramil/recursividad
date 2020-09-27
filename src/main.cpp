@@ -16,9 +16,17 @@ int factorialRecursivoDeCola(int num, int acum);
 
 int fibonacci(int num);
 
-int fibonacciAdultos(int num);
 
-int fibonacciBebes(int num);
+int fibo (int num);
+
+int adulto(int n);
+
+int bebe(int n);
+
+
+int funcionAckerman(int n, int m);
+
+int torreHanoi(int cantidadDiscos);
 
 int main(int argc, char** argv){
 	int num,exp;
@@ -26,25 +34,59 @@ int main(int argc, char** argv){
 	cin >> num;
 	cout <<"numero que va ser usado como exponente, y segundo multiplicando: "<<endl;
 	cin >> exp;
+	/*
 	cout << "el factorial es: "<<factorial(num)<<endl;
 	cout << "el factorial(cola recursivo) es: "<<factorial1(num)<<endl;
 	cout << "la potencia es: "<<potencia(num,exp)<<endl;
 	cout << "la multiplicacion es: "<<multiplicacionPorSuma(num,exp)<<endl;
 	cout << "eL MAXIMO COMUN DIVISOR ES: "<<MCD(num,exp)<<endl;
 	cout << "fibonacci de num: "<<fibonacci(num)<<endl;
+	cout << "fibonacci de num con recursividad mutua: "<<fibo(num)<<endl; */
+	cout << "funcion de ackerman con recursividad anidada: "<<funcionAckerman(num,exp)<<endl;
 	return 0;
 }
 
 
-//fibonacci(A y B) implementados con recursividad mutua
-int fibonacciAdultos(int num){
-	if (num==0)
+
+//RECURSIVIDAD MULTIPLE: Dentro de la funcion se lo llama a la funcion recursiva
+int torreHanoi(int num){
+	return 0;
+}
+
+
+
+//RECURSIVIDAD ANIDADA: funcion de ackerman (tarda un montonasooo, crece muy rapido)
+
+int funcionAckerman(int m, int n){
+	if (m==0)
+		return n+1;
+	if (n==0)
+		return funcionAckerman(m-1,1);
+	return funcionAckerman(m-1,funcionAckerman(m,n-1));
+}
+
+
+
+
+
+//fibonacci(A y B - fibo) implementados con recursividad mutua
+
+int fibo (int num){
+	return adulto(num)+bebe(num);
+}
+
+int adulto(int n){
+	if (n==1)
 		return 0;
+	return bebe(n)+bebe(n-1);
 }
 
-int fibonacciBebes(int num){
-
+int bebe(int n){
+	if (n==1)
+		return 1;
+	return adulto(n-1);
 }
+
 
 //fibonacci implementado con recurisvidad  multiple, return de 2 veces el llamado de recursion
 int fibonacci(int num){
