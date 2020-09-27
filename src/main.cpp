@@ -16,6 +16,10 @@ int factorialRecursivoDeCola(int num, int acum);
 
 int fibonacci(int num);
 
+int fibonacciAdultos(int num);
+
+int fibonacciBebes(int num);
+
 int main(int argc, char** argv){
 	int num,exp;
 	cout <<"numero que va ser usado para calculo de factorial, base de potencia, multiplicando: "<<endl;
@@ -29,6 +33,17 @@ int main(int argc, char** argv){
 	cout << "eL MAXIMO COMUN DIVISOR ES: "<<MCD(num,exp)<<endl;
 	cout << "fibonacci de num: "<<fibonacci(num)<<endl;
 	return 0;
+}
+
+
+//fibonacci(A y B) implementados con recursividad mutua
+int fibonacciAdultos(int num){
+	if (num==0)
+		return 0;
+}
+
+int fibonacciBebes(int num){
+
 }
 
 //fibonacci implementado con recurisvidad  multiple, return de 2 veces el llamado de recursion
